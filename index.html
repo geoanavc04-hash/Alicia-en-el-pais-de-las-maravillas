@@ -1,1 +1,397 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tres ejercicios interactivos de JavaScript inspirados en Alicia en el País de las Maravillas.">
+    <title>Alicia en el País de las Maravillas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="portada" id="inicio">
+        <div class="decoracion">♠ ♥ ♣ ♦</div>
+        <p class="sobre-titulo">UNA AVENTURA DE PROGRAMACIÓN</p>
+        <h1>Alicia en el País de las Maravillas</h1>
+        <p class="subtitulo">
+            Tres desafíos mágicos donde la lógica y la imaginación
+            se encuentran.
+        </p>
+        <a href="#ejercicios" class="boton-portada">Entrar al País de las Maravillas ↓</a>
+        <div class="decoracion inferior">✦ ☾ ✦</div>
+    </header>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#pocion">01. La poción</a>
+        <a href="#merienda">02. La merienda</a>
+        <a href="#reina">03. La Reina</a>
+        <a href="#explicacion">Código y pruebas</a>
+    </nav>
+
+    <main id="ejercicios">
+
+        <section class="introduccion">
+            <p class="etiqueta">BIENVENIDO, VIAJERO</p>
+            <h2>¿Estás listo para una aventura?</h2>
+            <p>
+                Sigue al Conejo Blanco, visita la mesa del Sombrerero
+                Loco y enfréntate a los desafíos de la Reina de Corazones.
+                Cada reto pondrá a prueba tus habilidades de programación.
+            </p>
+            <div class="frase">
+                “Si no sabes a dónde vas, cualquier camino te llevará allí”.
+            </div>
+        </section>
+
+        <section class="ejercicio tarjeta-pocion" id="pocion">
+            <div class="numero-ejercicio">01</div>
+            <p class="etiqueta">EL JARDÍN DE LAS MARAVILLAS</p>
+            <h2>La poción mágica de Alicia</h2>
+            <p class="descripcion">
+                Alicia encontró una botella misteriosa. Ayúdala a descubrir
+                cuánto medirá después de beber la poción y si podrá atravesar
+                la pequeña puerta del jardín.
+            </p>
+
+            <div class="personaje">
+                <span class="emoji-personaje">🧴</span>
+                <div>
+                    <strong>La regla mágica</strong>
+                    <p>
+                        Cada mililitro de poción reduce 2 centímetros
+                        de la altura de Alicia.
+                    </p>
+                    <div class="formula">
+                        Altura final = Altura inicial − (Poción × 2)
+                    </div>
+                    <p class="dato-magico">
+                        Altura máxima de la puerta: <strong>100 cm</strong>
+                    </p>
+                </div>
+            </div>
+
+            <form id="formularioPocion" class="formulario">
+                <div class="campo">
+                    <label for="alturaInicial">Altura inicial de Alicia (cm)</label>
+                    <input
+                        type="number"
+                        id="alturaInicial"
+                        min="1"
+                        max="1000"
+                        step="any"
+                        placeholder="Ej. 150"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="cantidadPocion">Cantidad de poción (ml)</label>
+                    <input
+                        type="number"
+                        id="cantidadPocion"
+                        min="0"
+                        max="100"
+                        step="any"
+                        placeholder="Ej. 30"
+                        required
+                    >
+                    <small>La cantidad permitida es de 0 a 100 ml.</small>
+                </div>
+
+                <button type="submit" class="boton boton-morado">
+                    ✨ Probar la poción
+                </button>
+            </form>
+
+            <div id="resultadoPocion" class="resultado" role="status"
+                aria-live="polite" tabindex="-1">
+                <p>Tu resultado mágico aparecerá aquí...</p>
+            </div>
+        </section>
+
+        <section class="ejercicio tarjeta-merienda" id="merienda">
+            <div class="numero-ejercicio">02</div>
+            <p class="etiqueta">LA MESA DEL TÉ</p>
+            <h2>La merienda del Sombrerero Loco</h2>
+            <p class="descripcion">
+                ¡Es la hora del no-cumpleaños! El Sombrerero Loco necesita
+                calcular la cuenta de sus invitados. Elige tu bebida y
+                descubre cuánto tendrás que pagar.
+            </p>
+
+            <div class="personaje">
+                <span class="emoji-personaje">🎩</span>
+                <div>
+                    <strong>Menú del País de las Maravillas</strong>
+                    <ul class="menu-precios">
+                        <li><span>☕ Té mágico</span><strong>Bs 5</strong></li>
+                        <li><span>🍋 Limonada del Gato</span><strong>Bs 7</strong></li>
+                        <li><span>🍫 Chocolate encantado</span><strong>Bs 10</strong></li>
+                        <li><span>🍓 Jugo de fresas</span><strong>Bs 8</strong></li>
+                    </ul>
+                    <p class="dato-magico">
+                        ¡Compra 5 tazas o más y recibe un descuento del 10 %!
+                    </p>
+                </div>
+            </div>
+
+            <form id="formularioMerienda" class="formulario">
+                <div class="campo">
+                    <label for="nombreInvitado">Nombre del invitado</label>
+                    <input
+                        type="text"
+                        id="nombreInvitado"
+                        maxlength="60"
+                        placeholder="Ej. Alicia"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="tipoBebida">Elige tu bebida</label>
+                    <select id="tipoBebida" required>
+                        <option value="">-- Selecciona una bebida --</option>
+                        <option value="te">Té mágico</option>
+                        <option value="limonada">Limonada del Gato</option>
+                        <option value="chocolate">Chocolate encantado</option>
+                        <option value="jugo">Jugo de fresas</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="cantidadTazas">Cantidad de tazas</label>
+                    <input
+                        type="number"
+                        id="cantidadTazas"
+                        min="1"
+                        max="20"
+                        step="1"
+                        placeholder="Ej. 5"
+                        required
+                    >
+                    <small>Debes elegir entre 1 y 20 tazas.</small>
+                </div>
+
+                <button type="submit" class="boton boton-rosa">
+                    ☕ Calcular mi merienda
+                </button>
+            </form>
+
+            <div id="resultadoMerienda" class="resultado" role="status"
+                aria-live="polite" tabindex="-1">
+                <p>El Sombrerero está esperando tu pedido...</p>
+            </div>
+        </section>
+
+        <section class="ejercicio tarjeta-reina" id="reina">
+            <div class="numero-ejercicio">03</div>
+            <p class="etiqueta">EL CASTILLO DE CORAZONES</p>
+            <h2>El desafío de la Reina de Corazones</h2>
+            <p class="descripcion">
+                ¡Que le corten la cabeza! La Reina quiere que analices una
+                secuencia de cartas numeradas. Clasifica los números pares
+                e impares, calcula sus sumas y descubre qué grupo domina.
+            </p>
+
+            <div class="personaje">
+                <span class="emoji-personaje">👑</span>
+                <div>
+                    <strong>Las reglas de la Reina</strong>
+                    <p>
+                        Los números divisibles entre 2 son pares.
+                        Los demás son impares.
+                    </p>
+                    <div class="formula">
+                        Si número % 2 == 0 → par
+                        <br>
+                        Si no → impar
+                    </div>
+                    <p class="dato-magico">
+                        Puedes analizar entre 1 y 100 cartas.
+                    </p>
+                </div>
+            </div>
+
+            <form id="formularioReina" class="formulario">
+                <div class="campo">
+                    <label for="cantidadCartas">Cantidad de cartas</label>
+                    <input
+                        type="number"
+                        id="cantidadCartas"
+                        min="1"
+                        max="100"
+                        step="1"
+                        placeholder="Ej. 10"
+                        required
+                    >
+                    <small>Introduce un número entero entre 1 y 100.</small>
+                </div>
+
+                <button type="submit" class="boton boton-rojo">
+                    ♥ Analizar las cartas
+                </button>
+            </form>
+
+            <div id="resultadoReina" class="resultado resultado-reina"
+                role="status" aria-live="polite" tabindex="-1">
+                <p>La Reina espera tu respuesta...</p>
+            </div>
+        </section>
+
+        <section class="documentacion" id="explicacion">
+            <p class="etiqueta">EL LIBRO DEL CONOCIMIENTO</p>
+            <h2>¿Cómo funciona la magia?</h2>
+            <p>
+                Esta página utiliza HTML para la estructura, CSS para el
+                diseño y JavaScript para procesar los datos. No utiliza
+                bibliotecas ni frameworks externos.
+            </p>
+
+            <div class="concepto">
+                <h3>01. La poción mágica</h3>
+                <p>
+                    <strong>Entrada:</strong> altura inicial y cantidad de
+                    poción. <strong>Proceso:</strong> se multiplica la poción
+                    por 2 y se resta de la altura inicial. Se utiliza
+                    <code>if / else if / else</code> para validar los datos
+                    y decidir si Alicia atraviesa la puerta.
+                </p>
+                <p>
+                    <strong>Ejemplo:</strong> altura 150 cm y poción 30 ml.
+                    Altura final: 150 − (30 × 2) = 90 cm.
+                    Resultado: Alicia puede pasar.
+                </p>
+            </div>
+
+            <div class="concepto">
+                <h3>02. La merienda</h3>
+                <p>
+                    <strong>Entrada:</strong> nombre, bebida y cantidad de
+                    tazas. <strong>Proceso:</strong> <code>switch</code>
+                    selecciona el precio unitario; luego se calcula el
+                    subtotal. Si se compran 5 tazas o más, se aplica el
+                    10 % de descuento.
+                </p>
+                <p>
+                    <strong>Ejemplo:</strong> Alicia compra 5 tés de Bs 5.
+                    Subtotal: Bs 25. Descuento: Bs 2,50.
+                    Total: Bs 22,50.
+                </p>
+            </div>
+
+            <div class="concepto">
+                <h3>03. El desafío de la Reina</h3>
+                <p>
+                    <strong>Entrada:</strong> cantidad de cartas.
+                    <strong>Proceso:</strong> un ciclo <code>for</code>
+                    recorre los números desde 1 hasta el valor introducido.
+                    El operador <code>%</code> identifica los pares y se
+                    acumulan las cantidades y las sumas de ambos grupos.
+                </p>
+                <p>
+                    <strong>Ejemplo:</strong> para 5 cartas, la secuencia es
+                    1, 2, 3, 4, 5. Pares: 2, 4 (suma 6).
+                    Impares: 1, 3, 5 (suma 9).
+                    Gana el grupo impar.
+                </p>
+            </div>
+
+            <h3 class="titulo-pruebas">Casos de prueba de los tres ejercicios</h3>
+            <p>
+                Esta tabla presenta las entradas y los resultados esperados.
+                La columna final se puede completar después de ejecutar
+                cada prueba en el navegador.
+            </p>
+
+            <h4>Ejercicio 1: La poción</h4>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entrada</th>
+                            <th>Resultado esperado</th>
+                            <th>Obtenido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>150 cm, 30 ml</td><td>90 cm; puede pasar</td><td>Por probar</td></tr>
+                        <tr><td>150 cm, 25 ml</td><td>100 cm; puede pasar</td><td>Por probar</td></tr>
+                        <tr><td>150 cm, 10 ml</td><td>130 cm; no puede pasar</td><td>Por probar</td></tr>
+                        <tr><td>0 cm, 10 ml</td><td>Error: altura inválida</td><td>Por probar</td></tr>
+                        <tr><td>150 cm, 101 ml</td><td>Error: poción fuera del rango</td><td>Por probar</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Ejercicio 2: La merienda</h4>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entrada</th>
+                            <th>Resultado esperado</th>
+                            <th>Obtenido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Alicia, té, 5</td><td>Subtotal 25; descuento 2,50; total 22,50</td><td>Por probar</td></tr>
+                        <tr><td>Gato, limonada, 2</td><td>Subtotal 14; descuento 0; total 14</td><td>Por probar</td></tr>
+                        <tr><td>Sombrerero, chocolate, 20</td><td>Subtotal 200; descuento 20; total 180</td><td>Por probar</td></tr>
+                        <tr><td>Nombre vacío, té, 1</td><td>Error: nombre obligatorio</td><td>Por probar</td></tr>
+                        <tr><td>Alicia, té, 21</td><td>Error: máximo 20 tazas</td><td>Por probar</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Ejercicio 3: La Reina</h4>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entrada</th>
+                            <th>Resultado esperado</th>
+                            <th>Obtenido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>5</td><td>Pares: 2, suma 6; impares: 3, suma 9; gana impar</td><td>Por probar</td></tr>
+                        <tr><td>1</td><td>Un impar; suma impar 1; gana impar</td><td>Por probar</td></tr>
+                        <tr><td>2</td><td>Un par y un impar; ambas sumas 2 y 1; gana par</td><td>Por probar</td></tr>
+                        <tr><td>0</td><td>Error: valor mínimo 1</td><td>Por probar</td></tr>
+                        <tr><td>101</td><td>Error: máximo 100 cartas</td><td>Por probar</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Conceptos de JavaScript utilizados</h3>
+            <ul class="lista-conceptos">
+                <li><code>let</code>: declara variables cuyo valor puede cambiar.</li>
+                <li><code>const</code>: declara referencias que no se reasignan.</li>
+                <li><code>if / else</code>: permite tomar decisiones según condiciones.</li>
+                <li><code>switch</code>: selecciona una opción entre varios casos.</li>
+                <li><code>for</code>: repite instrucciones un número determinado de veces.</li>
+                <li><code>function</code>: agrupa instrucciones reutilizables.</li>
+                <li><code>document.getElementById()</code>: busca un elemento por su identificador.</li>
+                <li><code>value</code>: obtiene el dato introducido en un campo.</li>
+                <li><code>textContent</code>: muestra texto dentro de un elemento.</li>
+                <li><code>addEventListener("submit", ...)</code>: detecta el envío de un formulario.</li>
+                <li><code>preventDefault()</code>: evita que el formulario recargue la página.</li>
+                <li><code>Number()</code>: convierte un valor en número.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="decoracion">♥ ♠ ♦ ♣</div>
+        <h2>Fin de la aventura… ¿o solo el comienzo?</h2>
+        <p>Programación Web I · HTML · CSS · JavaScript</p>
+        <p>Inspirado en Alicia en el País de las Maravillas</p>
+        <a href="#inicio" class="enlace-arriba">Volver al inicio ↑</a>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+          </html>
+
